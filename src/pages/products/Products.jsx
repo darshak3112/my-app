@@ -9,11 +9,14 @@ import Pagination from "../../components/pagination/Pagination";
 const Products = () => {
   const dispatch = useDispatch();
   const { url } = useSelector((state) => state.products);
+  const { pagination } = useSelector((state) => state.products);
+  const { offset, limit } = pagination;
+  
 
   const { data } = url;
   
   const fetchApiConfig = () => {
-    fetchDataFromApi("?offset=0&limit=10").then((res) => {
+    fetchDataFromApi(`?offset=${offset}&limit=${limit}`).then((res) => {
       const products = {
         data: res.data,
       };
@@ -23,7 +26,8 @@ const Products = () => {
 
   useEffect(() => {
     fetchApiConfig();
-  }, []);
+    window.scrollTo(0, 0)
+  }, [pagination]);
 
   return (
     <>

@@ -1,15 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
-import { incPages, decPages } from "../../store/productSlice";
+import { incPages, decPages, removeProduct } from "../../store/productSlice";
 
 const Pagination = () => {
-    const { offset,limit } = useSelector((state) => state.Pagination||{});
-  
-    const dispatch = useDispatch();
-    
-    console.log(offset,limit);
+  const { pagination } = useSelector((state) => state.products);
+  const { offset, limit } = pagination;
 
-    const onPrevClick = () => {
-      dispatch(decPages())
+  const dispatch = useDispatch();
+
+  const onPrevClick = () => {
+    dispatch(decPages());
   };
 
   const onNextClick = () => {
@@ -20,9 +19,10 @@ const Pagination = () => {
     <>
       <div class="flex flex-col items-center">
         <span class="text-sm text-indigo-800 dark:text-indigo-900">
-          Showing <span class="font-semibold text-indigo-900 ">1</span> to{" "}
-          <span class="font-semibold text-indigo-900 ">10</span> of{" "}
-          <span class="font-semibold text-indigo-900 ">100</span> Entries
+          Showing{" "}
+          <span class="font-semibold text-indigo-900 ">{offset + 1}</span> to{" "}
+          <span class="font-semibold text-indigo-900 ">{limit}</span> of{" "}
+          <span class="font-semibold text-indigo-900 ">260</span> Entries
         </span>
 
         <div class="inline-flex mt-2 xs:mt-0">
