@@ -6,32 +6,8 @@ import Produts from "./pages/products/Products";
 import Cart from "./pages/cart/Cart";
 import Details from "./pages/details/Details";
 import PageNotFound from "./pages/notFound/PageNotFound";
-import { fetchDataFromApi } from "./utils/api";
-import { useSelector, useDispatch } from "react-redux";
-import { getApiConfiguration, getCarts } from "./store/productSlice";
-import { getByPlaceholderText } from "@testing-library/react";
-import { useEffect } from "react";
 
 function App() {
-  const { url } = useSelector((state) => state.products);
-  const dispatch = useDispatch();
-
-  console.log("url ", url.data);
-
-  const fetchApiConfig = () => {
-    fetchDataFromApi("").then((res) => {
-      const products = {
-        data : res.data
-      }
-      dispatch(getApiConfiguration(products));
-    });
-  };
-
-  useEffect(() => {
-    fetchApiConfig();
-  }, [])
-  
-
   return (
     <BrowserRouter>
       <Header />
