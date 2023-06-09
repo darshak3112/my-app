@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-import { incPages, decPages, removeProduct } from "../../store/productSlice";
+import { incPages, decPages } from "../../store/productSlice";
 
 const Pagination = () => {
   const { pagination } = useSelector((state) => state.products);
-  const { offset, limit } = pagination;
+  const { offset } = pagination;
 
   const dispatch = useDispatch();
 
@@ -21,7 +21,7 @@ const Pagination = () => {
         <span class="text-sm text-indigo-800 dark:text-indigo-900">
           Showing{" "}
           <span class="font-semibold text-indigo-900 ">{offset + 1}</span> to{" "}
-          <span class="font-semibold text-indigo-900 ">{limit}</span> of{" "}
+          <span class="font-semibold text-indigo-900 ">{offset + 12}</span> of{" "}
           <span class="font-semibold text-indigo-900 ">260</span> Entries
         </span>
 

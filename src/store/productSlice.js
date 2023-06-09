@@ -13,6 +13,7 @@ export const productSlice = createSlice({
         },
         getCarts: (state, action) => {
             state.carts = action.payload;
+
         },
 
 
