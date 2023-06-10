@@ -17,8 +17,8 @@ const Header = () => {
             </li>
             <li className="mr-6 flex text-2xl hover:scale-150 hover:text-indigo-600 transform transition-all ">
               <Link to="/cart">My Cart</Link>
-              <div class="t-0 relative">
-                <p class="flex h-2 w-2 items-center justify-center rounded-full bg-red-500 p-3 text-xs text-white">
+              <div className="t-0 relative">
+                <p className="flex h-2 w-2 items-center justify-center rounded-full bg-red-500 p-3 text-xs text-white">
                   {Object.keys(carts).length}
                 </p>
               </div>

@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { getCarts } from "../../store/productSlice";
+import { Link } from "react-router-dom";
 
 const ProductCart = ({ details }) => {
   const dispatch = useDispatch();
@@ -20,13 +21,16 @@ const ProductCart = ({ details }) => {
 
   return (
     <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-      <a className="block relative h-48 rounded overflow-hidden">
+      <Link
+        to={"/details/" + details.id}
+        className="block relative h-48 rounded overflow-hidden"
+      >
         <img
           alt="ecommerce"
           className="object-cover object-center w-full h-full block"
           src={details.image}
         />
-      </a>
+      </Link>
       <div className="mt-4">
         <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
           {details.category}
@@ -37,7 +41,7 @@ const ProductCart = ({ details }) => {
           </h2>
           <button
             onClick={() => addToCart(details.id)}
-            class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-2 focus:outline-none hover:bg-indigo-600 rounded"
+            className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-2 focus:outline-none hover:bg-indigo-600 rounded"
           >
             Add To Cart
           </button>

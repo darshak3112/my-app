@@ -1,5 +1,5 @@
-import Achievements from "../../components/achievements/Achievements";
-import HeroBanner from "../../components/hero/Hero";
+import Achievements from "./achievements/Achievements";
+import HeroBanner from "./hero/Hero";
 
 
 const Home = () => {
